@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DoorController : MonoBehaviour
 {
@@ -9,9 +8,9 @@ public class DoorController : MonoBehaviour
     public GameObject KeyGameObject;            //If player has Key,  assign it here
     //public GameObject txtToDisplay;             //Display the information about how to close/open the door
 
-    private bool playerInZone;                  //Check if the player is in the zone
+    public bool playerInZone;                  //Check if the player is in the zone
     private bool doorOpened;                    //Check if door is currently opened or not
-
+    [SerializeField]
     private Animation doorAnim;
     private BoxCollider doorCollider;           //To enable the player to go through the door if door is opened else block him
 
@@ -61,11 +60,8 @@ public class DoorController : MonoBehaviour
             if (doorState == DoorState.Opened) {
                 //txtToDisplay.GetComponent<Text>().text = $"Press '{KeyCode.E}' to Close";
                 doorCollider.enabled = false;
-            } else if (doorState == DoorState.Closed || GotKey) {
+            } else if (GotKey) {
                 //txtToDisplay.GetComponent<Text>().text = $"Press '{KeyCode.E}' to Open";
-                doorCollider.enabled = true;
-            } else if (doorState == DoorState.Jammed) {
-                //txtToDisplay.GetComponent<Text>().text = "Needs Key";
                 doorCollider.enabled = true;
             }
         }
@@ -75,25 +71,19 @@ public class DoorController : MonoBehaviour
         }
 
         doorOpened = !doorOpened;           //The toggle function of door to open/close
-        if (!doorAnim.isPlaying) {
+        if (doorAnim.isPlaying == false) {
             switch (doorState) {
-                case DoorState.Closed: {
-                    if (!KeyNeeded) {
+                case DoorState.Closed:
+                    if (!KeyNeeded || GotKey) {
                         doorAnim.Play("Door_Open");
                         doorState = DoorState.Opened;
-                        break;
                     }
 
-                    if (GotKey) {
-                        doorAnim.Play("Door_Open");
-                        doorState = DoorState.Opened;
-                    } else {
-                        //doorAnim.Play("Door_Jam");
+                    if (GotKey == false) {
                         doorState = DoorState.Jammed;
                     }
 
                     break;
-                }
                 case DoorState.Opened:
                     doorAnim.Play("Door_Close");
                     doorState = DoorState.Closed;

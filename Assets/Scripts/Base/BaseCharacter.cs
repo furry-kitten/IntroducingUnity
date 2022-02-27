@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Scripts.Base.Interfaces;
+﻿using Assets.Scripts.Base.Interfaces;
 using Assets.Scripts.Characters.Properties;
 using UnityEngine;
 using UnityEngine.Events;

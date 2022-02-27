@@ -72,11 +72,24 @@
     <Compile Include="Assets\Scripts\Characters\Properties\CharacterStatus.cs" />
     <Compile Include="Assets\Scripts\Characters\Properties\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\Constants\Constants.cs" />
+    <Compile Include="Assets\Scripts\Plates\Effect.cs" />
+    <Compile Include="Assets\Scripts\Plates\Plate.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\PseudoVolumetricExplosion.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\exploderComponents\ExploderComponent.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\exploderComponents\LightComponent.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\exploderComponents\ParticleComponent.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\exploderComponents\PseudoVolumetricComponent.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\exploderComponents\VolumetricComponent.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\effects\exploderComponents\VolumetricComponent2D.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\exploders\Exploder.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\exploders\Exploder2D.cs" />
+    <Compile Include="Assets\True Explosions\System\Scripts\exploders\SphereExploder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\wood-877000.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\tile-846018.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\patch-924648.shader" />
+    <None Include="Assets\Scripts\ClassDiagram1.cd" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\bricks-868344.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\README.txt" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\wood-938698.shader" />
@@ -86,6 +99,7 @@
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\stone-805287.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\wall-846015.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\brick-957827.shader" />
+    <None Include="Assets\True Explosions\System\Shaders\SphereVolumetricExplosion.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\shading-671263.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\wall-617961.shader" />
     <None Include="Assets\HighQualityBricks&amp;Walls\Shaders\wood-877365.shader" />

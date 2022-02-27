@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.Base;
+﻿using System;
+using Assets.Scripts.Base;
 using Assets.Scripts.Constants;
+
 using UnityEngine;
 
 namespace Assets.Scripts.Characters
@@ -10,35 +12,41 @@ namespace Assets.Scripts.Characters
 
         public Transform CameraTransform { get; set; }
 
-        public override void Move() {
+        public override void Move()
+        {
             ControlAnimation();
             SetMovement();
             RotationNormal();
         }
 
-        public override void ControlAnimation() {
+        public override void ControlAnimation()
+        {
             Vertical = Input.GetAxis(Axis.Vertical);
             Horizontal = Input.GetAxis(Axis.Horizontal);
             MoveAmount = Mathf.Clamp01(Mathf.Abs(Vertical) + Mathf.Abs(Horizontal));
             Animator.SetFloat(nameof(Vertical), Vertical, DampTime, Time.deltaTime);
         }
 
-        public void SetMovement() {
-            Vector3 move = CameraTransform.forward * Vertical * Status.SpeedForward * Time.deltaTime;
-            move += CameraTransform.right * Horizontal * Status.SpeedRight * Time.deltaTime;
-            MoveDirection = move;
+        public void SetMovement()
+        {
+            Vector3 move = CameraTransform.forward * Vertical;
+            move += CameraTransform.right * Horizontal;
+            MoveDirection = move * Status.SpeedForward * Time.deltaTime;
             RotationDirection = CameraTransform.forward;
             transform.localPosition += MoveDirection;
         }
 
-        public void RotationNormal() {
-            if (Status.IsAiming) {
+        public void RotationNormal()
+        {
+            if (Status.IsAiming)
+            {
                 RotationDirection = MoveDirection;
             }
 
             Vector3 targetDirection = RotationDirection;
             targetDirection.y = 0;
-            if (targetDirection == default) {
+            if (targetDirection == default)
+            {
                 targetDirection = transform.forward;
             }
 
